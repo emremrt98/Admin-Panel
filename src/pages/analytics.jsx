@@ -2,7 +2,7 @@ import React from 'react';
 import "./analytics/analytic.css"
 import Analytic from './analytics/analytic'
 import { BsFillCircleFill } from "react-icons/bs";
-import { motion } from "framer-motion"
+import { animate, motion } from "framer-motion"
 import { useRef } from "react";
 
 export default function Analytics() {
@@ -117,6 +117,37 @@ export default function Analytics() {
     ]
     const containerRef = useRef(null);
 
+    const variants = {
+        hidden: {
+            scale: 0
+        },
+        visible1: {
+            scale: 1,
+            transition: { duration: 1 }
+        },
+        visible2: {
+            scale: 1,
+            transition: { duration: 1, delay: .25 }
+        },
+        visible3: {
+            scale: 1,
+            transition: { duration: 1, delay: .5 }
+        },
+        visible4: {
+            scale: 1,
+            transition: { duration: 1, delay: .75 }
+        },
+
+        hiddenStudent: {
+            x: 500,
+        },
+        showStudent: {
+            x: 0,
+            transition: { duration: 1, delay: 1.5 }
+        }
+    }
+
+
     return (
         <div>
             <div style={{ borderBottom: '1px solid black' }}>
@@ -124,45 +155,48 @@ export default function Analytics() {
             </div>
             <div className='main-contain'>
                 <div className='contain' ref={containerRef} >
-                    <motion.div>
+                    <motion.div initial="hidden" animate="visible1" variants={variants}  >
                         <Analytic
                             containerRef={containerRef}
                             data={analyticTable[0]}
                             rank={analyticTable[0].color}
                         />
                     </motion.div>
-                    <div>
+
+                    <motion.div initial="hidden" animate="visible2" variants={variants} >
                         <Analytic
                             containerRef={containerRef}
                             data={analyticTable[1]}
                             rank={analyticTable[1].color}
                         />
-                    </div>
-                    <div>
+                    </motion.div>
+
+                    <motion.div initial="hidden" animate="visible3" variants={variants} >
                         <Analytic
                             containerRef={containerRef}
                             data={analyticTable[2]}
                             rank={analyticTable[2].color}
                         />
-                    </div>
-                    <div>
+                    </motion.div>
+
+                    <motion.div initial="hidden" animate="visible4" variants={variants} >
                         <Analytic
                             containerRef={containerRef}
                             data={analyticTable[3]}
                             rank={analyticTable[3].color}
                         />
-                    </div>
+                    </motion.div>
                 </div>
                 <div>
-                    <div className="head">
+                    <motion.div initial="hiddenStudent" animate="showStudent" variants={variants} className="head">
                         <h2 className='header'>Student List</h2>
                         <p className='userCount'>09 / 16</p>
-                    </div>
-                    <div className="student">
+                    </motion.div>
+                    <motion.div initial="hiddenStudent" animate="showStudent" variants={variants} className="student">
                         {
                             studentList.map((person, index) => (<p key={index} className='information' ><span className='person'>{person.name}</span> <span><BsFillCircleFill className='activeUser' style={person.isActive ? { "color": "green" } : { "color": "red" }} /></span></p>))
                         }
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div >
