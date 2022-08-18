@@ -2,8 +2,8 @@ import React from 'react';
 import "./analytics/analytic.css"
 import Analytic from './analytics/analytic'
 import { BsFillCircleFill } from "react-icons/bs";
-
-
+import { motion } from "framer-motion"
+import { useRef } from "react";
 
 export default function Analytics() {
     const analyticTable = [
@@ -115,6 +115,7 @@ export default function Analytics() {
         }
 
     ]
+    const containerRef = useRef(null);
 
     return (
         <div>
@@ -122,11 +123,35 @@ export default function Analytics() {
                 <h1>Analytics</h1>
             </div>
             <div className='main-contain'>
-                <div className='contain'>
-                    <Analytic data={analyticTable[0]} rank={analyticTable[0].color} />
-                    <Analytic data={analyticTable[1]} rank={analyticTable[1].color} />
-                    <Analytic data={analyticTable[2]} rank={analyticTable[2].color} />
-                    <Analytic data={analyticTable[3]} rank={analyticTable[3].color} />
+                <div className='contain' ref={containerRef} >
+                    <motion.div>
+                        <Analytic
+                            containerRef={containerRef}
+                            data={analyticTable[0]}
+                            rank={analyticTable[0].color}
+                        />
+                    </motion.div>
+                    <div>
+                        <Analytic
+                            containerRef={containerRef}
+                            data={analyticTable[1]}
+                            rank={analyticTable[1].color}
+                        />
+                    </div>
+                    <div>
+                        <Analytic
+                            containerRef={containerRef}
+                            data={analyticTable[2]}
+                            rank={analyticTable[2].color}
+                        />
+                    </div>
+                    <div>
+                        <Analytic
+                            containerRef={containerRef}
+                            data={analyticTable[3]}
+                            rank={analyticTable[3].color}
+                        />
+                    </div>
                 </div>
                 <div>
                     <div className="head">
