@@ -187,17 +187,17 @@ export default function Analytics() {
                         />
                     </motion.div>
                 </div>
-                <div>
-                    <motion.div initial="hiddenStudent" animate="showStudent" variants={variants} className="head">
+                <motion.div initial="hiddenStudent" animate="showStudent" variants={variants}>
+                    <div className="head">
                         <h2 className='header'>Student List</h2>
                         <p className='userCount'>09 / 16</p>
-                    </motion.div>
-                    <motion.div initial="hiddenStudent" animate="showStudent" variants={variants} className="student">
+                    </div>
+                    <div className="student">
                         {
                             studentList.map((person, index) => (<p key={index} className='information' ><span className='person'>{person.name}</span> <span><BsFillCircleFill className='activeUser' style={person.isActive ? { "color": "green" } : { "color": "red" }} /></span></p>))
                         }
-                    </motion.div>
-                </div>
+                    </div>
+                </motion.div>
             </div>
         </div >
 
