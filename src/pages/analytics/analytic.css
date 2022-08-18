@@ -62,12 +62,13 @@
 }
 
 .head {
-    background-color: rgba(245, 43, 43, 0.8);
+    background: -webkit-linear-gradient(180deg, #C24DC0 0%, #EF4E9B 100%);
     padding: 10px;
     width: 420px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: #fff;
 }
 
 .header {
