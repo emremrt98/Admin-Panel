@@ -5,8 +5,7 @@ import { BsFillCircleFill } from "react-icons/bs";
 
 
 
-function analytics() {
-    
+export default function Analytics() {
     const analyticTable = [
         {
             id: 1,
@@ -37,58 +36,57 @@ function analytics() {
             color: "conic-gradient(#CD9E42 50deg, #cd9f4288 0deg)"
         }
     ]
-    
     const studentList = [
         {
             name: "Emre Mert",
             isActive: false
         },
-    
+
         {
             name: "Emre Mert",
             isActive: false
         },
-    
+
         {
             name: "Emre Mert",
             isActive: true
         },
-    
+
         {
             name: "Emre Mert",
             isActive: false
         },
-    
+
         {
             name: "Emre Mert",
             isActive: true
         },
-    
+
         {
             name: "Emre Mert",
             isActive: false
         },
-    
+
         {
             name: "Emre Mert",
             isActive: true
         },
-    
+
         {
             name: "Emre Mert",
             isActive: true
         },
-    
+
         {
             name: "Emre Mert",
             isActive: true
         },
-    
+
         {
             name: "Emre Mert",
             isActive: true
         },
-    
+
         {
             name: "Emre Mert",
             isActive: false
@@ -97,12 +95,12 @@ function analytics() {
             name: "Emre Mert",
             isActive: true
         },
-    
+
         {
             name: "Emre Mert",
             isActive: true
         },
-    
+
         {
             name: "Emre Mert",
             isActive: false
@@ -115,8 +113,9 @@ function analytics() {
             name: "Emre Mert",
             isActive: false
         }
-    
+
     ]
+
     return (
         <div>
             <div style={{ borderBottom: '1px solid black' }}>
@@ -129,7 +128,6 @@ function analytics() {
                     <Analytic data={analyticTable[2]} rank={analyticTable[2].color} />
                     <Analytic data={analyticTable[3]} rank={analyticTable[3].color} />
                 </div>
-
                 <div>
                     <div className="head">
                         <h2 className='header'>Student List</h2>
@@ -137,7 +135,7 @@ function analytics() {
                     </div>
                     <div className="student">
                         {
-                            studentList.map((person, index) => (<p key={index} className='information' ><span className='person'>{person.name}</span> <span><BsFillCircleFill className='activeUser'  style={person.isActive ? { "color": "green" } : { "color": "red" }} /></span></p>))
+                            studentList.map((person, index) => (<p key={index} className='information' ><span className='person'>{person.name}</span> <span><BsFillCircleFill className='activeUser' style={person.isActive ? { "color": "green" } : { "color": "red" }} /></span></p>))
                         }
                     </div>
                 </div>
@@ -147,4 +145,3 @@ function analytics() {
     );
 };
 
-export default analytics;

@@ -1,7 +1,7 @@
-import { useState } from "react";
+
 
 export default function Analytic({ data, rank }) {
-    const [color, setColor] = useState(0);
+
     return (
 
         <div className="general-analytic">
